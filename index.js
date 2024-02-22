@@ -2,6 +2,7 @@ import express, { urlencoded } from "express";
 import mongoose from "mongoose";
 import env from "dotenv"
 import routes from "./Routes/routes.js";
+import postRoutes from "./Routes/postRoutes.js";
 
 env.config()
 const app = express();
@@ -33,11 +34,13 @@ const mongoUrl = process.env.MONGO_URL;
 
 
 app.use("/", routes); 
+app.use("/", postRoutes);
 
 
 app.listen(8080, () => {
     console.log("Server started on port 8080");
 });
+
 
 
 
